@@ -9,7 +9,7 @@ tab1, tab2 = st.tabs(["Portfolio", "CV"])
 
 with tab1:
     
-    col1, col2, col3, col4 = st.columns([0.7, 4.5, 0.35, 0.7])
+    col1, col2, col3, col4 = st.columns([1, 4, 0.4, 1])
     
     with col1:
         profile_pic = Image.open("profile_pic.jpg")
@@ -17,11 +17,8 @@ with tab1:
 
     with col2:
         st.title("Cristian Rivas")
-        st.subheader("Data Analyst Portfolio")
-        st.write("""
-        ### [Hire me on Upwork](https://www.upwork.com/freelancers/cristianr16) \n
-        email: crisalexis3008@gmail.com
-        """)
+        st.subheader("Data Analyst")
+        st.write("email: crisalexis3008@gmail.com")
         
     with col3:   
         st.image(Image.open("icons/Linkedin.png"), width = 50)#linkedin
@@ -30,12 +27,8 @@ with tab1:
         
     with col4:
         st.button("LinkedIn", "https://www.linkedin.com/in/cristian-rivas-0b4a0212b/")#linkedin
-        st.button("UpWork", "https://www.upwork.com/freelancers/cristianr16")#upwork
+        st.button("Hire me on UpWork", "https://www.upwork.com/freelancers/cristianr16")#upwork
         st.button("GitHub", "https://github.com/potatocris/DA")#github
-
-
-#                email: crisalexis3008@gmail.com
-
 
     st.divider()
     colp1, colp2, colp3 = st.columns(3)
@@ -44,14 +37,14 @@ with tab1:
     with colp1:
         with st.container():
             st.markdown("#### Tableau Revenue Dashbaord")
-            st.image(Image.open("portfolio_examples/Maritime_revenue.png"))
-            st.image(Image.open("portfolio_examples/maritime_revenue_feedback.png"))
+            st.image(Image.open("portfolio_examples/maritime_revenue.png"))
+            #st.image(Image.open("portfolio_examples/maritime_revenue_feedback.png"))
             
             col1, col2, col3 = st.columns([1, 1, 8])
             with col1:
                     st.image(Image.open("icons/python.png"), width = 30)
             with col2: 
-                st.image(Image.open("icons/tableau.png"), width = 150)
+                st.image(Image.open("icons/tableau.png"), width = 160)
             with st.expander("Project Summary"):
                 st.write("""
                          Objective: Link revenue to marketing strategies. 
@@ -65,14 +58,13 @@ with tab1:
     with colp2:
         with st.container():
             st.markdown("#### Streamlit Performance Web App")
-            st.image(Image.open("portfolio_examples/sport_student_web_app.png"))
-            st.image(Image.open("portfolio_examples/sport_student_web_app_feedback.png"))
+            st.image(Image.open("portfolio_examples/streamlit_sports.png"))
             
             col1, col2, col3 = st.columns([1, 1, 8])
             with col1:
                     st.image(Image.open("icons/python.png"), width = 30)
             with col2: 
-                st.image(Image.open("icons/streamlit.png"), width = 70)
+                st.image(Image.open("icons/streamlit.png"), width = 60)
                 
             with st.expander("Project Summary"):
                 st.write("""
@@ -86,14 +78,13 @@ with tab1:
     with colp3:
         with st.container():
             st.markdown("#### Power Bi Sales Dashbaord")
-            st.image(Image.open("portfolio_examples/JFab Power Bi.png"), caption = "Caption")
-            st.image(Image.open("portfolio_examples/JFab Power Bi review.png"))
+            st.image(Image.open("portfolio_examples/jfab_sales.png"))
             
             col1, col2, col3 = st.columns([1, 1, 8])
             with col1:
-                    st.image(Image.open("icons/power bi.png"), width = 80)
+                    st.image(Image.open("icons/power bi.png"), width = 65)
             with col2: 
-                st.image(Image.open("icons/Excel logo.png"), width = 70)
+                st.image(Image.open("icons/Excel logo.png"), width = 50)
                 
                 
             with st.expander("Project Summary"):
@@ -106,14 +97,19 @@ with tab1:
                          """)
         
 
-
-
 with tab2:
     st.title("CV")
-    def show_pdf(file_path):
-        with open(file_path,"rb") as f:
-            base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="800" height="800" type="application/pdf"></iframe>'
-        st.markdown(pdf_display, unsafe_allow_html=True)
-
-    show_pdf('Cristian_Rivas_Data_Analyst_CV.pdf')
+    
+    #enable cv download
+    with open('Cristian_Rivas_Data_Analyst_CV.pdf', 'rb') as file:
+        PDFbyte = file.read()        
+    
+    st.download_button(
+            label = "Download PDF", 
+            data = PDFbyte,
+            file_name="CV.pdf",
+            mime='application/octet-stream') 
+    
+    st.image(Image.open("cv.jpg"))
+    
+    
