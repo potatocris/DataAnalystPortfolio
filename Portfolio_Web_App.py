@@ -101,9 +101,7 @@ with tab1:
                          - Set up an invoice system with Excel
                          - Leveraged Power Query to clean sales and aggregate all sales invoices
                          - Developed a Power Bi dashboard for client to keep track on monthly sales and other KPIs
-                         """)
-        
-    
+                         """) 
 with tab2:
     col1, col2 = st.columns([4, 6])
     
