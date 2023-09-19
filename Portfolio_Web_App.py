@@ -15,7 +15,7 @@ tab1, tab2, tab3 = st.tabs(["Portfolio", "Tech Stack", "CV"])
 
 with tab1:
     
-    col1, col2, col3, col4 = st.columns([2, 4, 0.4, 1])
+    col1, col2, col3, col4 = st.columns([2, 4, 0.3, 1])
     
     with col1:
         profile_pic = Image.open("profile_pic.jpg")
@@ -27,9 +27,11 @@ with tab1:
         st.write("email: crisalexis3008@gmail.com")
         
     with col3:   
-        st.image(Image.open("icons/Linkedin.png"), width = 50)#linkedin
-        st.image(Image.open("icons/upwork.png"), width = 100)#upwork
-        st.image(Image.open("icons/githubcat.png"), width = 50) #github
+        st.image(Image.open("icons/Linkedin.png"), width = 30)#linkedin
+        st.write("")
+        st.image(Image.open("icons/upwork.png"), width = 70)#upwork
+        st.write(" ")
+        st.image(Image.open("icons/githubcat.png"), width = 30) #github
         
     with col4:
         st.button("LinkedIn", "https://www.linkedin.com/in/cristian-rivas-0b4a0212b/")#linkedin
