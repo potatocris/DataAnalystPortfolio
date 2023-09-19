@@ -36,13 +36,14 @@ with tab1:
     #Maritime Dashbaord
     with colp1:
         with st.container():
+            
             st.markdown("#### Tableau Revenue Dashbaord")
-            st.image(Image.open("portfolio_examples/maritime_revenue.png"))
+            st.image(Image.open("portfolio_examples/Maritime_revenue.png"))
             #st.image(Image.open("portfolio_examples/maritime_revenue_feedback.png"))
             
             col1, col2, col3 = st.columns([1, 1, 8])
             with col1:
-                    st.image(Image.open("icons/python.png"), width = 30)
+                st.image(Image.open("icons/python.png"), width = 30)
             with col2: 
                 st.image(Image.open("icons/tableau.png"), width = 160)
             with st.expander("Project Summary"):
