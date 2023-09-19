@@ -1,15 +1,21 @@
 import streamlit as st
 import base64
 from PIL import Image
+import plotly.express as px
+import pandas as pd
+import plotly
+import seaborn as sns
+import matplotlib.pyplot as plt
+
 
 st.set_page_config(page_title = "Cristian Rivas - Data Analyst", layout = "wide")
 
 #tabs
-tab1, tab2 = st.tabs(["Portfolio", "CV"])
+tab1, tab2, tab3 = st.tabs(["Portfolio", "Tech Stack", "CV"])
 
 with tab1:
     
-    col1, col2, col3, col4 = st.columns([1, 4, 0.4, 1])
+    col1, col2, col3, col4 = st.columns([2, 4, 0.4, 1])
     
     with col1:
         profile_pic = Image.open("profile_pic.jpg")
@@ -97,8 +103,89 @@ with tab1:
                          - Developed a Power Bi dashboard for client to keep track on monthly sales and other KPIs
                          """)
         
-
+    
 with tab2:
+    col1, col2 = st.columns([4, 6])
+    
+    with col1:
+        st.markdown("Tech Stack")
+        tools = {"Excel" : 6, 
+         "Python" : 2.5,
+         "Power Bi" : 1.5, 
+         "SQL" : 1,
+         "PySpark" : 1,
+         "Streamlit" : 1,
+         "GitHub" : 1, 
+         "Tableau" : 0.6,
+        }
+        tools_data = list(tools.items())
+        dg = pd.DataFrame(tools_data, columns=["Tools", "Competency"])
+        
+        #sns.set_style("darkgrid", {"axes.edgecolor": (0, 0, 0, 0)})
+        # Create the bar plot
+        plt.figure(figsize=(6, 8))
+        ax = sns.barplot(x="Competency", y="Tools", data=dg, palette="viridis")
+
+        # Add labels and title
+        ax.set_xlabel("Years of Experience", color="white")
+        ax.set_ylabel("Tools", color="white")
+        
+        
+        ax.tick_params(axis='x', colors='white')
+        ax.tick_params(axis='y', colors='white', labelsize=16) 
+        
+        sns.despine(left = True)
+
+        # Show the plot
+        st.pyplot(plt, transparent=True)
+    
+    with col2:
+        with st.container():
+        
+            stack = {
+            "Understanding Stakeholder Needs" : 7,
+            "Problem Solving" : 7, 
+            "Processing Data" : 9, 
+            "Analyzing Data" : 7, 
+            "Visualize & Story Telling" : 8, 
+            "Communication " : 7, 
+                }
+            
+            data = list(stack.items())
+            df = pd.DataFrame(data, columns=["Skill", "Competency"])
+            fig = px.line_polar(df, r="Competency", theta="Skill", line_close=True)
+            
+            fig.update_traces(fill='toself', line_color = 'green')
+            fig.update_layout(title="Skills")
+            
+            fig.update_layout(
+                height=800,  # Set the height of the plot
+                width=700
+            )
+            fig.update_layout(
+            polar=dict(
+                bgcolor='#15161A'  # Set the background color to dark grey
+            ))
+            
+            fig.update_layout(
+            polar=dict(
+                radialaxis=dict(
+                    range=[0, 10]  # Set the range from 0 to 10
+                )
+            ))
+            
+            fig.update_layout(
+            polar=dict(
+                angularaxis=dict(
+                    tickfont=dict(size=22, family="Arial", color="white")  # Customize font properties
+                )
+                ))
+
+            # Show the plot
+            st.plotly_chart(fig, use_container_width=True)
+    
+
+with tab3:
     st.title("CV")
     
     #enable cv download
@@ -113,4 +200,7 @@ with tab2:
     
     st.image(Image.open("cv.jpg"))
     
+    
+
+
     
