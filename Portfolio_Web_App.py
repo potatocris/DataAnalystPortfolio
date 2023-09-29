@@ -6,9 +6,14 @@ import pandas as pd
 import plotly
 import seaborn as sns
 import matplotlib.pyplot as plt
-import webbrowser
+import base64
 
 st.set_page_config(page_title = "Cristian Rivas - Data Analyst", layout = "wide")
+
+
+def img_to_base64(img_path):
+    with open(img_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode('utf-8')
 
 #tabs
 tab1, tab2, tab3 = st.tabs(["Portfolio", "Tech Stack", "CV"])
@@ -27,7 +32,16 @@ with tab1:
         st.write("email: crisalexis3008@gmail.com")
         
     with col3:   
-        st.image(Image.open("icons/Linkedin.png"), width = 30)#linkedin
+        linkedin_url = "https://www.linkedin.com/in/cristian-rivas-0b4a0212b/"
+        linkedin_icon_base64 = img_to_base64("icons/Linkedin.png")
+        st.markdown(
+            f"""
+            <a href="{linkedin_url}" target="_blank">
+            <img src="data:image/png;base64,{linkedin_icon_base64}" width="30"/>
+            LinkedIn
+            </a>
+            """,
+    unsafe_allow_html=True,)
         st.write("")
         st.image(Image.open("icons/upwork.png"), width = 70)#upwork
         st.write(" ")
