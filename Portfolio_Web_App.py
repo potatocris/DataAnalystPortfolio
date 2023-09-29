@@ -37,8 +37,10 @@ with tab1:
         st.markdown(
         """
         [LinkedIn](https://www.linkedin.com/in/cristian-rivas-0b4a0212b/)
-        
+          
+          
         [Hire me on UpWork](https://www.upwork.com/freelancers/cristianr16)
+        
         
         [GitHub](https://github.com/potatocris/DA)
         """,
