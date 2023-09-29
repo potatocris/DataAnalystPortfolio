@@ -24,7 +24,7 @@ with tab1:
     
     with col1:
         profile_pic = Image.open("profile_pic.jpg")
-        st.image(profile_pic, width = 180)
+        st.image(profile_pic, width = 160)
 
     with col2:
         st.title("Cristian Rivas")
@@ -48,7 +48,7 @@ with tab1:
             </div>
             
             <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                <img src="data:image/png;base64,{upwork_icon_base64}" width="30" style="margin-right: 15px;"/>
+                <img src="data:image/png;base64,{upwork_icon_base64}" width="40" style="margin-right: 10px;"/>
                 <a href="{upwork_url}" target="_blank">UpWork</a>
             </div>
             
