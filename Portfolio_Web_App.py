@@ -47,12 +47,14 @@ with tab1:
                 <a href="{linkedin_url}" target="_blank">LinkedIn</a>
             </div>
             
-            <div style="display: flex; align-items: center;">
-                <a href="{upwork_url}" target="_blank">
-                <img src="data:image/png;base64,{upwork_icon_base64}" width="30"/>UpWork</a>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <img src="data:image/png;base64,{upwork_icon_base64}" width="30" style="margin-right: 10px;"/>
+                <a href="{upwork_url}" target="_blank">LinkedIn</a>
             
-            <a href="{github_url}" target="_blank">
-            <img src="data:image/png;base64,{github_icon_base64}" width="30"/>GitHub</a>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <img src="data:image/png;base64,{github_icon_base64}" width="30" style="margin-right: 10px;"/>
+                <a href="{github_url}" target="_blank">LinkedIn</a>
+            
             """,
         unsafe_allow_html=True,)
         
