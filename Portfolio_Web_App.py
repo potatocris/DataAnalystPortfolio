@@ -35,10 +35,10 @@ with tab1:
         linkedin_url = "https://www.linkedin.com/in/cristian-rivas-0b4a0212b/"
         linkedin_icon_base64 = img_to_base64("icons/Linkedin.png")
         
-        upwork_url = "https://www.linkedin.com/in/cristian-rivas-0b4a0212b/"
+        upwork_url = "https://www.upwork.com/freelancers/cristianr16"
         upwork_icon_base64 = img_to_base64("icons/upwork.png")
         
-        github_url = "https://www.linkedin.com/in/cristian-rivas-0b4a0212b/"
+        github_url = "https://github.com/potatocris/DA"
         github_icon_base64 = img_to_base64("icons/githubcat.png")
         
         st.markdown(
