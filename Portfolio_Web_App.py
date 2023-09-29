@@ -47,11 +47,7 @@ with tab1:
             <img src="data:image/png;base64,{linkedin_icon_base64}" width="30"/>
             LinkedIn
             </a>
-            """,
-        unsafe_allow_html=True,)
-        
-        st.markdown(
-            f"""
+            
             <a href="{upwork_url}" target="_blank">
             <img src="data:image/png;base64,{upwork_icon_base64}" width="30"/>
             LinkedIn
