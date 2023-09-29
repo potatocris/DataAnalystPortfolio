@@ -34,6 +34,13 @@ with tab1:
     with col3:   
         linkedin_url = "https://www.linkedin.com/in/cristian-rivas-0b4a0212b/"
         linkedin_icon_base64 = img_to_base64("icons/Linkedin.png")
+        
+        upwork_url = "https://www.linkedin.com/in/cristian-rivas-0b4a0212b/"
+        upwork_icon_base64 = img_to_base64("icons/upwork.png")
+        
+        github_url = "https://www.linkedin.com/in/cristian-rivas-0b4a0212b/"
+        github_icon_base64 = img_to_base64("icons/githubcat.png")
+        
         st.markdown(
             f"""
             <a href="{linkedin_url}" target="_blank">
@@ -41,25 +48,47 @@ with tab1:
             LinkedIn
             </a>
             """,
-    unsafe_allow_html=True,)
-        st.write("")
-        st.image(Image.open("icons/upwork.png"), width = 70)#upwork
-        st.write(" ")
-        st.image(Image.open("icons/githubcat.png"), width = 30) #github
+        unsafe_allow_html=True,)
         
-    with col4:
         st.markdown(
-        """
-        [LinkedIn](https://www.linkedin.com/in/cristian-rivas-0b4a0212b/)
-          
-          
-        [Hire me on UpWork](https://www.upwork.com/freelancers/cristianr16)
+            f"""
+            <a href="{upwork_url}" target="_blank">
+            <img src="data:image/png;base64,{upwork_icon_base64}" width="30"/>
+            LinkedIn
+            </a>
+            """,
+        unsafe_allow_html=True,)
+        
+        st.markdown(
+            f"""
+            <a href="{linkedin_url}" target="_blank">
+            <img src="data:image/png;base64,{github_icon_base64}" width="30"/>
+            LinkedIn
+            </a>
+            """,
+        unsafe_allow_html=True,)
         
         
-        [GitHub](https://github.com/potatocris/DA)
-        """,
-        unsafe_allow_html=True,
-        )
+        
+        
+        # st.write("")
+        # st.image(Image.open("icons/upwork.png"), width = 70)#upwork
+        # st.write(" ")
+        # st.image(Image.open("icons/githubcat.png"), width = 30) #github
+        
+    # with col4:
+    #     st.markdown(
+    #     """
+    #     [LinkedIn](https://www.linkedin.com/in/cristian-rivas-0b4a0212b/)
+          
+          
+    #     [Hire me on UpWork](https://www.upwork.com/freelancers/cristianr16)
+        
+        
+    #     [GitHub](https://github.com/potatocris/DA)
+    #     """,
+    #     unsafe_allow_html=True,
+    #     )
         # if st.button("LinkedIn"):
         #     webbrowser.open_new_tab("https://www.linkedin.com/in/cristian-rivas-0b4a0212b/")
         # if st.button("Hire me on UpWork"):
