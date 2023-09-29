@@ -6,7 +6,7 @@ import pandas as pd
 import plotly
 import seaborn as sns
 import matplotlib.pyplot as plt
-
+import webbrowser
 
 st.set_page_config(page_title = "Cristian Rivas - Data Analyst", layout = "wide")
 
@@ -34,9 +34,12 @@ with tab1:
         st.image(Image.open("icons/githubcat.png"), width = 30) #github
         
     with col4:
-        st.button("LinkedIn", "https://www.linkedin.com/in/cristian-rivas-0b4a0212b/")#linkedin
-        st.button("Hire me on UpWork", "https://www.upwork.com/freelancers/cristianr16")#upwork
-        st.button("GitHub", "https://github.com/potatocris/DA")#github
+        st.button("LinkedIn"):
+            webbrowser.open_new_tab("https://www.linkedin.com/in/cristian-rivas-0b4a0212b/")
+        st.button("Hire me on UpWork"):
+            webbrowser("https://www.upwork.com/freelancers/cristianr16")
+        st.button("GitHub"):
+            webbrowser("https://github.com/potatocris/DA")#github
 
     st.divider()
     colp1, colp2, colp3 = st.columns(3)
