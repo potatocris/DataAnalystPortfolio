@@ -49,11 +49,13 @@ with tab1:
             
             <div style="display: flex; align-items: center; margin-bottom: 10px;">
                 <img src="data:image/png;base64,{upwork_icon_base64}" width="30" style="margin-right: 10px;"/>
-                <a href="{upwork_url}" target="_blank">LinkedIn</a>
+                <a href="{upwork_url}" target="_blank">UpWork</a>
+            </div>
             
             <div style="display: flex; align-items: center; margin-bottom: 10px;">
                 <img src="data:image/png;base64,{github_icon_base64}" width="30" style="margin-right: 10px;"/>
-                <a href="{github_url}" target="_blank">LinkedIn</a>
+                <a href="{github_url}" target="_blank">GitHub</a>
+             </div>
             
             """,
         unsafe_allow_html=True,)
