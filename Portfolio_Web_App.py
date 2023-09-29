@@ -43,24 +43,16 @@ with tab1:
         
         st.markdown(
             f"""
-            <a href="{linkedin_url}" target="_blank">
-            <img src="data:image/png;base64,{linkedin_icon_base64}" width="30"/>
-            LinkedIn
-            </a>
+            <div style="display: flex; align-items: center;">
+                <img src="data:image/png;base64,{linkedin_icon_base64}" width="30"/>
+                <a href="{linkedin_url}" target="_blank">LinkedIn</a>
             
-            <a href="{upwork_url}" target="_blank">
-            <img src="data:image/png;base64,{upwork_icon_base64}" width="30"/>
-            LinkedIn
-            </a>
-            """,
-        unsafe_allow_html=True,)
-        
-        st.markdown(
-            f"""
+            <div style="display: flex; align-items: center;">
+                <a href="{upwork_url}" target="_blank">
+                <img src="data:image/png;base64,{upwork_icon_base64}" width="30"/>UpWork</a>
+            
             <a href="{linkedin_url}" target="_blank">
-            <img src="data:image/png;base64,{github_icon_base64}" width="30"/>
-            LinkedIn
-            </a>
+            <img src="data:image/png;base64,{github_icon_base64}" width="30"/>GitHub</a>
             """,
         unsafe_allow_html=True,)
         
