@@ -32,29 +32,37 @@ with tab1:
         st.write("email: crisalexis3008@gmail.com")
         
     with col3:   
-        linkedin_url = "https://www.linkedin.com/in/cristian-rivas-0b4a0212b/"
         linkedin_icon_base64 = img_to_base64("icons/Linkedin.png")
-        
+        upwork_icon_base64 = img_to_base64("icons/Upwork.png")
+        github_icon_base64 = img_to_base64("icons/Github.png")
+
+        linkedin_url = "https://www.linkedin.com/in/cristian-rivas-0b4a0212b/"
         upwork_url = "https://www.upwork.com/freelancers/cristianr16"
-        upwork_icon_base64 = img_to_base64("icons/upwork.png")
-        
         github_url = "https://github.com/potatocris/DA"
-        github_icon_base64 = img_to_base64("icons/githubcat.png")
         
         st.markdown(
             f"""
-            <div style="display: flex; align-items: center;">
-                <img src="data:image/png;base64,{linkedin_icon_base64}" width="30"/>
-                <a href="{linkedin_url}" target="_blank">LinkedIn</a>
-            
-            <div style="display: flex; align-items: center;">
-                <a href="{upwork_url}" target="_blank">
-                <img src="data:image/png;base64,{upwork_icon_base64}" width="30"/>UpWork</a>
-            
-            <a href="{linkedin_url}" target="_blank">
-            <img src="data:image/png;base64,{github_icon_base64}" width="30"/>GitHub</a>
+            <div style="display: block;">
+
+                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                    <img src="data:image/png;base64,{linkedin_icon_base64}" width="30" style="margin-right: 10px;"/>
+                    <a href="{linkedin_url}" target="_blank">LinkedIn</a>
+                </div>
+
+                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                    <img src="data:image/png;base64,{upwork_icon_base64}" width="30" style="margin-right: 10px;"/>
+                    <a href="{upwork_url}" target="_blank">UpWork</a>
+                </div>
+
+                <div style="display: flex; align-items: center;">
+                    <img src="data:image/png;base64,{github_icon_base64}" width="30" style="margin-right: 10px;"/>
+                    <a href="{github_url}" target="_blank">GitHub</a>
+                </div>
+
+            </div>
             """,
-        unsafe_allow_html=True,)
+            unsafe_allow_html=True,
+        )
         
         
         
