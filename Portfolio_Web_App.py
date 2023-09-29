@@ -34,11 +34,11 @@ with tab1:
         st.image(Image.open("icons/githubcat.png"), width = 30) #github
         
     with col4:
-        st.button("LinkedIn"):
+        if st.button("LinkedIn"):
             webbrowser.open_new_tab("https://www.linkedin.com/in/cristian-rivas-0b4a0212b/")
-        st.button("Hire me on UpWork"):
+        if st.button("Hire me on UpWork"):
             webbrowser("https://www.upwork.com/freelancers/cristianr16")
-        st.button("GitHub"):
+        if st.button("GitHub"):
             webbrowser("https://github.com/potatocris/DA")#github
 
     st.divider()
