@@ -34,12 +34,22 @@ with tab1:
         st.image(Image.open("icons/githubcat.png"), width = 30) #github
         
     with col4:
-        if st.button("LinkedIn"):
-            webbrowser.open_new_tab("https://www.linkedin.com/in/cristian-rivas-0b4a0212b/")
-        if st.button("Hire me on UpWork"):
-            webbrowser.open_new_tab("https://www.upwork.com/freelancers/cristianr16")
-        if st.button("GitHub"):
-            webbrowser.open_new_tab("https://github.com/potatocris/DA")#github
+        st.markdown(
+        """
+        [LinkedIn](https://www.linkedin.com/in/cristian-rivas-0b4a0212b/)
+        
+        [Hire me on UpWork](https://www.upwork.com/freelancers/cristianr16)
+        
+        [GitHub](https://github.com/potatocris/DA)
+        """,
+        unsafe_allow_html=True,
+        )
+        # if st.button("LinkedIn"):
+        #     webbrowser.open_new_tab("https://www.linkedin.com/in/cristian-rivas-0b4a0212b/")
+        # if st.button("Hire me on UpWork"):
+        #     webbrowser.open_new_tab("https://www.upwork.com/freelancers/cristianr16")
+        # if st.button("GitHub"):
+        #     webbrowser.open_new_tab("https://github.com/potatocris/DA")
 
     st.divider()
     colp1, colp2, colp3 = st.columns(3)
