@@ -10,26 +10,24 @@ import base64
 
 st.set_page_config(page_title = "Cristian Rivas - Data Analyst", layout = "wide")
 
-
 def img_to_base64(img_path):
     with open(img_path, "rb") as img_file:
         return base64.b64encode(img_file.read()).decode('utf-8')
 
 #tabs
-tab1, tab2, tab3 = st.tabs(["Portfolio", "Tech Stack", "CV"])
+tab1, tab2 = st.tabs(["Portfolio","CV"])
 
 with tab1:
     
-    col1, col2, col3, col4 = st.columns([2, 4, 0.3, 1])
+    col1, col2, col3, col4 = st.columns([1, 6, 1, 1])
     
     with col1:
         profile_pic = Image.open("profile_pic.jpg")
-        st.image(profile_pic, width = 160)
+        st.image(profile_pic, width = 150)
 
     with col2:
         st.title("Cristian Rivas")
         st.subheader("Data Analyst")
-        st.write("email: crisalexis3008@gmail.com")
         
     with col3:   
         linkedin_url = "https://www.linkedin.com/in/cristian-rivas-0b4a0212b/"
@@ -60,101 +58,141 @@ with tab1:
             """,
             unsafe_allow_html=True,)
         
-        
-        
-        
-        # st.write("")
-        # st.image(Image.open("icons/upwork.png"), width = 70)#upwork
-        # st.write(" ")
-        # st.image(Image.open("icons/githubcat.png"), width = 30) #github
-        
-    # with col4:
-    #     st.markdown(
-    #     """
-    #     [LinkedIn](https://www.linkedin.com/in/cristian-rivas-0b4a0212b/)
-          
-          
-    #     [Hire me on UpWork](https://www.upwork.com/freelancers/cristianr16)
-        
-        
-    #     [GitHub](https://github.com/potatocris/DA)
-    #     """,
-    #     unsafe_allow_html=True,
-    #     )
-        # if st.button("LinkedIn"):
-        #     webbrowser.open_new_tab("https://www.linkedin.com/in/cristian-rivas-0b4a0212b/")
-        # if st.button("Hire me on UpWork"):
-        #     webbrowser.open_new_tab("https://www.upwork.com/freelancers/cristianr16")
-        # if st.button("GitHub"):
-        #     webbrowser.open_new_tab("https://github.com/potatocris/DA")
 
     st.divider()
+    # Start building HTML for the gallery
+    st.markdown('<p style="color:#FF4B4B; font-size: 26px;">Delivered Projects</p>', unsafe_allow_html=True)
+    
+    
+    projects = [
+    
+    {"title": "Power Bi Sales Dashbaord", 
+     "description":
+         """Set up an efficient invoice database system with Excel
+            ETL pipeline with Power Query 
+            Power Bi dashboard informing the client of monthly revenue""", 
+     "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/jfab_sales.png')}", 
+     "stars": 5},
+    
+    {"title": "Tableau Revenue Dashboard", 
+    "description": 
+        """ ETL pipeline with Python,
+            Parsing of text to extract mentions of marketing with FuzzyWuzzy,
+            Monthly reports with Tableau""", 
+    "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/maritime_marketing.png')}", 
+    "stars": 5},
+    
+    {"title": "Streamlit Performance Web App", 
+    "description":
+        """Data cleaning with Python, 
+           Rating methodology to rank student's performance, 
+           Visualizations of progress and comparison with Plotly""", 
+    "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/sports_app.png')}", 
+    "stars": 5},
+    
+    {"title": "Gantt Chart Planner", 
+    "description":
+        """Custom Gantt Chart in Excel, 
+           Conditional formatting for tracking progress, 
+           User friendly
+           """, 
+    "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/gantt_chart.png')}", 
+    "stars": 5},
+    
+    {"title": "Product Comparison", 
+     "description":
+         """Extracted data from research papers
+            Carried an exploratory analysis to compare products 
+            Created a custom visualization using Seaborn""", 
+     "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/product_marketing.png')}", 
+     "stars": 5},
+    
+    ]
+
+    # Start building HTML for the gallery
+    gallery_html = """<div style='white-space: nowrap; overflow-x: auto;'>"""
+
+    for project in projects:
+        bullet_points = project["description"].split("\n")
+        list_items = "".join([f"<li>{item}</li>" for item in bullet_points])
+        stars = "&#9733;" * project["stars"] + "&#9734;" * (5 - project["stars"])
+        
+        project_html = f"""
+        <div style='display: inline-block;'>
+            <p style='font-size: 22px; font-weight: bold;'>{project["title"]}</p>
+            <img src='{project["image"]}' style='width:500px; height: 400px; margin: 10px;'/>
+            <ul>{list_items}</ul>
+            <div style='font-size: 24px;'>{stars}</div>
+        </div>"""
+
+        
+        gallery_html += project_html
+
+    gallery_html += "</div>"
+
+    # Display the gallery in Streamlit
+    st.markdown(gallery_html, unsafe_allow_html=True)
+    
+    
+    st.divider()
+    #st.header("Personal Projects")
+    st.markdown('<p style="color:#FF4B4B; font-size: 26px;">Personal Projects</p>', unsafe_allow_html=True)
     colp1, colp2, colp3 = st.columns(3)
     
-    #Maritime Dashbaord
-    with colp1:
-        with st.container():
-            
-            st.markdown("#### Tableau Revenue Dashbaord")
-            st.image(Image.open("portfolio_examples/Maritime_revenue.png"))
-            #st.image(Image.open("portfolio_examples/maritime_revenue_feedback.png"))
-            
-            col1, col2, col3 = st.columns([1, 1, 8])
-            with col1:
-                st.image(Image.open("icons/python.png"), width = 30)
-            with col2: 
-                st.image(Image.open("icons/tableau.png"), width = 160)
-            with st.expander("Project Summary"):
-                st.write("""
-                         Objective: Link revenue to marketing strategies. 
-                         Actions:
-                         - Data processing with Python
-                         - Parsing of text to extract mentions of marketing with FuzzyWuzzy
-                         - Monthly reports with Tableau
-                         """)
+    personal_projects = [
     
-    #Streamlit dashbaord
-    with colp2:
-        with st.container():
-            st.markdown("#### Streamlit Performance Web App")
-            st.image(Image.open("portfolio_examples/streamlit_sports.png"))
-            
-            col1, col2, col3 = st.columns([1, 1, 8])
-            with col1:
-                    st.image(Image.open("icons/python.png"), width = 30)
-            with col2: 
-                st.image(Image.open("icons/streamlit.png"), width = 60)
-                
-            with st.expander("Project Summary"):
-                st.write("""
-                         Objective: Interactive Web App for student athelets to track their progress in physical tests. 
-                         Actions:
-                         - Data cleaning with Python
-                         - Scoring methodology to rate stuents
-                         - Visualizations of progress and compariso with Plotly
-                         """)
-     #Jfab dashbaord   
-    with colp3:
-        with st.container():
-            st.markdown("#### Power Bi Sales Dashbaord")
-            st.image(Image.open("portfolio_examples/jfab_sales.png"))
-            
-            col1, col2, col3 = st.columns([1, 1, 8])
-            with col1:
-                    st.image(Image.open("icons/power bi.png"), width = 65)
-            with col2: 
-                st.image(Image.open("icons/Excel logo.png"), width = 50)
-                
-                
-            with st.expander("Project Summary"):
-                st.write("""
-                         Objective: Keep track of sales and product inventory. 
-                         Actions:
-                         - Set up an invoice system with Excel
-                         - Leveraged Power Query to clean sales and aggregate all sales invoices
-                         - Developed a Power Bi dashboard for client to keep track on monthly sales and other KPIs
-                         """) 
-with tab2:
+    {"title": "Zillow Api", 
+     "description":
+         """Set an API connection to Zillow""", 
+     "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/personal/zillow_api.png')}"},
+    
+    {"title": "Power Bi Earnings Dashboard", 
+    "description": 
+        """Dashboard to track personal Freelance earnings""", 
+    "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/personal/earnings_dash.png')}"},
+    
+    {"title": "Bitcoin Cycles", 
+    "description":
+        """Visualizing Bitcoin cycle patterns""", 
+    "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/personal/bitcoin_cycles.png')}"},
+    
+    {"title": "Inflation", 
+     "description":
+         """Plotting inflation in the US and the UK""", 
+     "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/personal/inflation.png')}"}, 
+    
+    {"title": "Logistic Regression", 
+     "description":
+         """Biggest factors in a logistic regression model""", 
+     "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/personal/logisitc_regression.png')}", }
+    ]
+
+    # Start building HTML for the gallery
+    gallery_html = """<div style='white-space: nowrap; overflow-x: auto;'>"""
+
+    for project in personal_projects:
+        bullet_points = project["description"].split("\n")
+        list_items = "".join([f"<li>{item}</li>" for item in bullet_points])
+        
+        project_html = f"""
+        <div style='display: inline-block;'>
+            <p style='font-size: 22px; font-weight: bold;'>{project["title"]}</p>
+            <img src='{project["image"]}' style='width:500px; height: 400px; margin: 10px;'/>
+            <ul>{list_items}</ul>
+        </div>"""
+
+        
+        gallery_html += project_html
+
+    gallery_html += "</div>"
+
+    # Display the gallery in Streamlit
+    st.markdown(gallery_html, unsafe_allow_html=True)
+    
+
+#with tab2:
+    st.divider()
+    st.markdown('<p style="color:#FF4B4B; font-size: 26px;">Technical Skills & Strengths</p>', unsafe_allow_html=True)
     col1, col2 = st.columns([4, 6])
     
     with col1:
@@ -173,7 +211,7 @@ with tab2:
         
         #sns.set_style("darkgrid", {"axes.edgecolor": (0, 0, 0, 0)})
         # Create the bar plot
-        plt.figure(figsize=(6, 8))
+        plt.figure(figsize=(5, 5))
         ax = sns.barplot(x="Competency", y="Tools", data=dg, palette="viridis")
 
         # Add labels and title
@@ -182,7 +220,7 @@ with tab2:
         
         
         ax.tick_params(axis='x', colors='white')
-        ax.tick_params(axis='y', colors='white', labelsize=16) 
+        ax.tick_params(axis='y', colors='white', labelsize=14) 
         
         sns.despine(left = True)
 
@@ -193,12 +231,12 @@ with tab2:
         with st.container():
         
             stack = {
-            "Understanding Stakeholder Needs" : 7,
-            "Problem Solving" : 7, 
+            "Understanding Stakeholder Needs" : 8,
+            "Problem Solving" : 9, 
             "Processing Data" : 9, 
-            "Analyzing Data" : 7, 
+            "Analyzing Data" : 8, 
             "Visualize & Story Telling" : 8, 
-            "Communication " : 7, 
+            "Communication " : 8, 
                 }
             
             data = list(stack.items())
@@ -209,7 +247,7 @@ with tab2:
             fig.update_layout(title="Skills")
             
             fig.update_layout(
-                height=800,  # Set the height of the plot
+                height=700,  # Set the height of the plot
                 width=700
             )
             fig.update_layout(
@@ -227,7 +265,7 @@ with tab2:
             fig.update_layout(
             polar=dict(
                 angularaxis=dict(
-                    tickfont=dict(size=22, family="Arial", color="white")  # Customize font properties
+                    tickfont=dict(size=20, family="Arial", color="white")  # Customize font properties
                 )
                 ))
 
@@ -235,7 +273,7 @@ with tab2:
             st.plotly_chart(fig, use_container_width=True)
     
 
-with tab3:
+with tab2:
     st.title("CV")
     
     #enable cv download
