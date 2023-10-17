@@ -94,8 +94,7 @@ with tab1:
     "description":
         """Custom Gantt Chart in Excel, 
            Conditional formatting for tracking progress, 
-           User friendly
-           """, 
+           User friendly""", 
     "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/gantt_chart.png')}", 
     "stars": 5},
     
