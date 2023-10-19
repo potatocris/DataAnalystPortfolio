@@ -18,8 +18,8 @@ def img_to_base64(img_path):
 tab1, tab2 = st.tabs(["Portfolio","CV"])
 
 with tab1:
-    
-    col1, col2, col3, col4 = st.columns([1, 6, 1, 1])
+    width = 10
+    col1, col2, col3 = st.columns([3, 5, 1])
     
     with col1:
         profile_pic = Image.open("profile_pic.jpg")
@@ -57,13 +57,11 @@ with tab1:
             
             """,
             unsafe_allow_html=True,)
-        
+    st.divider() 
+    #-------------------------------------------------------------------------------------------------------------
 
-    st.divider()
-    # Start building HTML for the gallery
-    st.markdown('<p style="color:#FF4B4B; font-size: 26px;">Delivered Projects</p>', unsafe_allow_html=True)
-    
-    
+    st.subheader(":red[Freelance Jobs]", divider = "red")
+
     projects = [
     
     {"title": "Power Bi Sales Dashbaord", 
@@ -72,7 +70,12 @@ with tab1:
             ETL pipeline with Power Query 
             Power Bi dashboard informing the client of monthly revenue""", 
      "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/jfab_sales.png')}", 
-     "stars": 5},
+     "stars": 5, 
+     "review":"""This is my second time hiring Cristian and I am happier with the results.
+                 He's an exceptional freelancer! Created an impressive interactive sales
+                 dashboard, capturing overall and per-item sales data. Attentive to every 
+                 detail, incorporated perfect branding colors, and maintained clear and 
+                 professional communication throughout. Highly recommended!"""},
     
     {"title": "Tableau Revenue Dashboard", 
     "description": 
@@ -80,7 +83,14 @@ with tab1:
             Parsing of text to extract mentions of marketing with FuzzyWuzzy,
             Monthly reports with Tableau""", 
     "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/maritime_marketing.png')}", 
-    "stars": 5},
+    "stars": 5, 
+    "review":"""It was amazing to work with Cris! The guy is exceptional at what he does, 
+                and he is he is friendly, communicates well, and created a beautiful 
+                dashboard for this project. He provided more value and data insights 
+                than I had originally expected. He is extremely talented in Excel, 
+                Tableau, and is a true expert in his field, and this shows in the 
+                outcomes and high-quality delivery; highly recommended for efficient 
+                execution and outcomes!"""},
     
     {"title": "Streamlit Performance Web App", 
     "description":
@@ -88,7 +98,10 @@ with tab1:
            Rating methodology to rank student's performance, 
            Visualizations of progress and comparison with Plotly""", 
     "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/sports_app.png')}", 
-    "stars": 5},
+    "stars": 5, 
+    "review":"""Cris is amazing! Once again over delivered on this project and we were 
+                able to get a little more creative on our dashboard. He took the time to 
+                troubleshoot and fix any minor bugs we ran into."""},
     
     {"title": "Gantt Chart Planner", 
     "description":
@@ -96,7 +109,8 @@ with tab1:
            Conditional formatting for tracking progress, 
            User friendly""", 
     "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/gantt_chart.png')}", 
-    "stars": 5},
+    "stars": 0, 
+    "review": "No feedback"},
     
     {"title": "Product Comparison", 
      "description":
@@ -104,7 +118,8 @@ with tab1:
             Carried an exploratory analysis to compare products 
             Created a custom visualization using Seaborn""", 
      "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/product_marketing.png')}", 
-     "stars": 5},
+     "stars": 0, 
+     "review": "No feedback "},
     
     ]
 
@@ -116,19 +131,26 @@ with tab1:
         list_items = "".join([f"<li>{item}</li>" for item in bullet_points])
         stars = "&#9733;" * project["stars"] + "&#9734;" * (5 - project["stars"])
         
+        review_with_breaks = project["review"].replace('\n', '<br>')
+        
         project_html = f"""
-        <div style='display: inline-block;'>
+        <div style='display: inline-block; text-align: left; vertical-align: top;'>
             <p style='font-size: 22px; font-weight: bold;'>{project["title"]}</p>
             <img src='{project["image"]}' style='width:500px; height: 400px; margin: 10px;'/>
+            <h5 style='margin-bottom: 0;'>Description</h5> <!-- Reduced margin-bottom -->
             <ul>{list_items}</ul>
+            <h5>Client Feedback</h5>
             <div style='font-size: 24px;'>{stars}</div>
+            <div style='width: 500px; word-wrap: break-word;'>
+                <p style='font-style: italic; color:grey;'>{review_with_breaks}</p>
+        </div>
         </div>"""
 
-        
         gallery_html += project_html
 
     gallery_html += "</div>"
 
+    
     # Display the gallery in Streamlit
     st.markdown(gallery_html, unsafe_allow_html=True)
     
