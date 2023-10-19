@@ -64,33 +64,34 @@ with tab1:
 
     projects = [
     
-    {"title": "Power Bi Sales Dashbaord", 
+    {"title": "  Power Bi Sales Dashbaord", 
      "description":
          """Set up an efficient invoice database system with Excel
             ETL pipeline with Power Query 
             Power Bi dashboard informing the client of monthly revenue""", 
      "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/jfab_sales.png')}", 
      "stars": 5, 
-     "review":"""This is my second time hiring Cristian and I am happier with the results.
-                 He's an exceptional freelancer! Created an impressive interactive sales
-                 dashboard, capturing overall and per-item sales data. Attentive to every 
-                 detail, incorporated perfect branding colors, and maintained clear and 
-                 professional communication throughout. Highly recommended!"""},
+     "review":"""This is my second time hiring Cristian and I am happier with the 
+                results. He's an exceptional freelancer! Created an impressive 
+                interactive salesdashboard, capturing overall and per-item sales 
+                data. Attentive to every detail, incorporated perfect branding 
+                colors, and maintained clear and professional communication 
+                throughout. Highly recommended!"""},
     
-    {"title": "Tableau Revenue Dashboard", 
+    {"title": "  Tableau Revenue Dashboard", 
     "description": 
         """ ETL pipeline with Python,
             Parsing of text to extract mentions of marketing with FuzzyWuzzy,
             Monthly reports with Tableau""", 
     "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/maritime_marketing.png')}", 
     "stars": 5, 
-    "review":"""It was amazing to work with Cris! The guy is exceptional at what he does, 
-                and he is he is friendly, communicates well, and created a beautiful 
-                dashboard for this project. He provided more value and data insights 
-                than I had originally expected. He is extremely talented in Excel, 
-                Tableau, and is a true expert in his field, and this shows in the 
-                outcomes and high-quality delivery; highly recommended for efficient 
-                execution and outcomes!"""},
+    "review":"""It was amazing to work with Cris! The guy is exceptional at what 
+                he does, and he is he is friendly, communicates well, and created 
+                a beautiful dashboard for this project. He provided more value and 
+                data insights than I had originally expected. He is extremely 
+                talented in Excel, Tableau, and is a true expert in his field, and 
+                this shows in the outcomes and high-quality delivery; highly 
+                recommended for efficient execution and outcomes!"""},
     
     {"title": "Streamlit Performance Web App", 
     "description":
@@ -99,9 +100,9 @@ with tab1:
            Visualizations of progress and comparison with Plotly""", 
     "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/sports_app.png')}", 
     "stars": 5, 
-    "review":"""Cris is amazing! Once again over delivered on this project and we were 
-                able to get a little more creative on our dashboard. He took the time to 
-                troubleshoot and fix any minor bugs we ran into."""},
+    "review":"""Cris is amazing! Once again over delivered on this project and we 
+                were able to get a little more creative on our dashboard. He took 
+                the time to troubleshoot and fix any minor bugs we ran into."""},
     
     {"title": "Gantt Chart Planner", 
     "description":
@@ -136,12 +137,12 @@ with tab1:
         project_html = f"""
         <div style='display: inline-block; text-align: left; vertical-align: top;'>
             <p style='font-size: 22px; font-weight: bold;'>{project["title"]}</p>
-            <img src='{project["image"]}' style='width:500px; height: 400px; margin: 10px;'/>
+            <img src='{project["image"]}' style='width:450px; height: 350px; margin: 5px;'/>
             <h5 style='margin-bottom: 0;'>Description</h5> <!-- Reduced margin-bottom -->
             <ul>{list_items}</ul>
             <h5>Client Feedback</h5>
             <div style='font-size: 24px;'>{stars}</div>
-            <div style='width: 500px; word-wrap: break-word;'>
+            <div word-wrap: break-word;'>
                 <p style='font-style: italic; color:grey;'>{review_with_breaks}</p>
         </div>
         </div>"""
@@ -154,37 +155,45 @@ with tab1:
     # Display the gallery in Streamlit
     st.markdown(gallery_html, unsafe_allow_html=True)
     
-    
     st.divider()
     #st.header("Personal Projects")
-    st.markdown('<p style="color:#FF4B4B; font-size: 26px;">Personal Projects</p>', unsafe_allow_html=True)
+    #-------------------------------------------------------------------------------------------------------------
+
+    st.subheader(":red[Personal Projects]", divider = "red")
     colp1, colp2, colp3 = st.columns(3)
-    
     personal_projects = [
     
     {"title": "Zillow Api", 
      "description":
-         """Set an API connection to Zillow""", 
+         """Aiming to find good rental prices
+            Setting up an API connection to Zillow data
+            Cleaning the data with Pandas""", 
      "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/personal/zillow_api.png')}"},
     
     {"title": "Power Bi Earnings Dashboard", 
     "description": 
-        """Dashboard to track personal Freelance earnings""", 
+        """Using Power Query to combine monthly statements
+            Creating a dashboard to track personal freelance earnings""", 
     "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/personal/earnings_dash.png')}"},
     
     {"title": "Bitcoin Cycles", 
     "description":
-        """Visualizing Bitcoin cycle patterns""", 
+        """Visualizing Bitcoin cycle patterns
+            Using Pandas to organize and query data
+            Employing Seaborn to plot and annotate""", 
     "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/personal/bitcoin_cycles.png')}"},
     
     {"title": "Inflation", 
      "description":
-         """Plotting inflation in the US and the UK""", 
+         """Plotting inflation in the US and the UK with Plotly
+            Organising data in Excel
+            """, 
      "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/personal/inflation.png')}"}, 
     
     {"title": "Logistic Regression", 
      "description":
-         """Biggest factors in a logistic regression model""", 
+         """Plotting inflation in the US and the UK using Plotly
+            Organizing data in Excel""", 
      "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/personal/logisitc_regression.png')}", }
     ]
 
@@ -196,24 +205,24 @@ with tab1:
         list_items = "".join([f"<li>{item}</li>" for item in bullet_points])
         
         project_html = f"""
-        <div style='display: inline-block;'>
+        <div style='display: inline-block; text-align: left; vertical-align: top;'>
             <p style='font-size: 22px; font-weight: bold;'>{project["title"]}</p>
-            <img src='{project["image"]}' style='width:500px; height: 400px; margin: 10px;'/>
+            <img src='{project["image"]}' style='width:450px; height: 350px; margin: 5px;'/>
+            <h5 style='margin-bottom: 0;'>Description</h5> <!-- Reduced margin-bottom -->
             <ul>{list_items}</ul>
         </div>"""
 
-        
         gallery_html += project_html
 
     gallery_html += "</div>"
 
     # Display the gallery in Streamlit
     st.markdown(gallery_html, unsafe_allow_html=True)
-    
-
-#with tab2:
     st.divider()
-    st.markdown('<p style="color:#FF4B4B; font-size: 26px;">Technical Skills & Strengths</p>', unsafe_allow_html=True)
+    #-------------------------------------------------------------------------------------------------------------
+
+    
+    st.subheader(":red[Technical Skills & Strengths]", divider = "red")
     col1, col2 = st.columns([4, 6])
     
     with col1:
