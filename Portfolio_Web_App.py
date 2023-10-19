@@ -10,7 +10,7 @@ import base64
 
 st.set_page_config(page_title = "Cristian Rivas - Data Analyst", layout = "wide")
 
-import streamlit_analytics
+# import streamlit_analytics
 
 # with streamlit_analytics.track():
 
