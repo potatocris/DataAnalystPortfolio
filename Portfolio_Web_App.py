@@ -10,6 +10,12 @@ import base64
 
 st.set_page_config(page_title = "Cristian Rivas - Data Analyst", layout = "wide")
 
+import streamlit_analytics
+
+# with streamlit_analytics.track():
+
+# st.session_state
+
 def img_to_base64(img_path):
     with open(img_path, "rb") as img_file:
         return base64.b64encode(img_file.read()).decode('utf-8')
@@ -301,7 +307,7 @@ with tab1:
 
             # Show the plot
             st.plotly_chart(fig, use_container_width=True)
-    
+
 
 with tab2:
     st.title("CV")
@@ -321,4 +327,3 @@ with tab2:
     
 
 
-    
