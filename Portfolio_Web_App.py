@@ -7,7 +7,6 @@ import plotly
 import seaborn as sns
 import matplotlib.pyplot as plt
 import base64
-import streamlit_analytics
 
 st.set_page_config(page_title = "Cristian Rivas - Data Analyst", layout = "wide")
 
