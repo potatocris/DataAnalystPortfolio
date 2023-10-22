@@ -7,14 +7,23 @@ import plotly
 import seaborn as sns
 import matplotlib.pyplot as plt
 import base64
+import streamlit_analytics
 
 st.set_page_config(page_title = "Cristian Rivas - Data Analyst", layout = "wide")
 
-# import streamlit_analytics
+st.markdown(
+    """
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6XNG9SY6T3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-# with streamlit_analytics.track():
-
-# st.session_state
+        gtag('config', 'G-6XNG9SY6T3');
+    </script>""", 
+    unsafe_allow_html=True,
+    )
 
 def img_to_base64(img_path):
     with open(img_path, "rb") as img_file:
@@ -129,6 +138,7 @@ with tab1:
      "review": "No feedback "},
     
     ]
+    st.markdown("⬅️ Scroll to explore more ➡️", unsafe_allow_html=True)
 
     # Start building HTML for the gallery
     gallery_html = """<div style='white-space: nowrap; overflow-x: auto;'>"""
@@ -202,6 +212,9 @@ with tab1:
             Organizing data in Excel""", 
      "image": f"data:image/png;base64,{img_to_base64('portfolio_examples/personal/logisitc_regression.png')}", }
     ]
+    
+    
+    st.markdown("⬅️ Scroll to explore more ➡️", unsafe_allow_html=True)
 
     # Start building HTML for the gallery
     gallery_html = """<div style='white-space: nowrap; overflow-x: auto;'>"""
@@ -229,7 +242,7 @@ with tab1:
 
     
     st.subheader(":red[Technical Skills & Strengths]", divider = "red")
-    col1, col2 = st.columns([4, 6])
+    col1, col2 = st.columns([5, 5])
     
     with col1:
         st.markdown("Tech Stack")
@@ -247,7 +260,7 @@ with tab1:
         
         #sns.set_style("darkgrid", {"axes.edgecolor": (0, 0, 0, 0)})
         # Create the bar plot
-        plt.figure(figsize=(5, 5))
+        plt.figure(figsize=(10, 5))
         ax = sns.barplot(x="Competency", y="Tools", data=dg, palette="viridis")
 
         # Add labels and title
@@ -263,50 +276,50 @@ with tab1:
         # Show the plot
         st.pyplot(plt, transparent=True)
     
-    with col2:
-        with st.container():
+    # with col2:
+    #     with st.container():
         
-            stack = {
-            "Understanding Stakeholder Needs" : 8,
-            "Problem Solving" : 9, 
-            "Processing Data" : 9, 
-            "Analyzing Data" : 8, 
-            "Visualize & Story Telling" : 8, 
-            "Communication " : 8, 
-                }
+    #         stack = {
+    #         "Understanding Stakeholder Needs" : 8,
+    #         "Problem Solving" : 9, 
+    #         "Processing Data" : 9, 
+    #         "Analyzing Data" : 8, 
+    #         "Visualize & Story Telling" : 8, 
+    #         "Communication " : 8, 
+    #             }
             
-            data = list(stack.items())
-            df = pd.DataFrame(data, columns=["Skill", "Competency"])
-            fig = px.line_polar(df, r="Competency", theta="Skill", line_close=True)
+    #         data = list(stack.items())
+    #         df = pd.DataFrame(data, columns=["Skill", "Competency"])
+    #         fig = px.line_polar(df, r="Competency", theta="Skill", line_close=True)
             
-            fig.update_traces(fill='toself', line_color = 'green')
-            fig.update_layout(title="Skills")
+    #         fig.update_traces(fill='toself', line_color = 'green')
+    #         fig.update_layout(title="Skills")
             
-            fig.update_layout(
-                height=700,  # Set the height of the plot
-                width=700
-            )
-            fig.update_layout(
-            polar=dict(
-                bgcolor='#15161A'  # Set the background color to dark grey
-            ))
+    #         fig.update_layout(
+    #             height=700,  # Set the height of the plot
+    #             width=700
+    #         )
+    #         fig.update_layout(
+    #         polar=dict(
+    #             bgcolor='#15161A'  # Set the background color to dark grey
+    #         ))
             
-            fig.update_layout(
-            polar=dict(
-                radialaxis=dict(
-                    range=[0, 10]  # Set the range from 0 to 10
-                )
-            ))
+    #         fig.update_layout(
+    #         polar=dict(
+    #             radialaxis=dict(
+    #                 range=[0, 10]  # Set the range from 0 to 10
+    #             )
+    #         ))
             
-            fig.update_layout(
-            polar=dict(
-                angularaxis=dict(
-                    tickfont=dict(size=20, family="Arial", color="white")  # Customize font properties
-                )
-                ))
+    #         fig.update_layout(
+    #         polar=dict(
+    #             angularaxis=dict(
+    #                 tickfont=dict(size=20, family="Arial", color="white")  # Customize font properties
+    #             )
+    #             ))
 
-            # Show the plot
-            st.plotly_chart(fig, use_container_width=True)
+    #         # Show the plot
+    #         st.plotly_chart(fig, use_container_width=True)
 
 
 with tab2:
