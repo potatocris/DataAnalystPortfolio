@@ -246,13 +246,13 @@ with tab1:
     with col1:
         st.markdown("Tech Stack")
         tools = {"Excel" : 6, 
-         "Python" : 2.5,
-         "Power Bi" : 1.5, 
-         "SQL" : 1,
+         "Python" : 3,
+         "Power Bi" : 3, 
+         "SQL" : 3,
          "PySpark" : 1,
-         "Streamlit" : 1,
-         "GitHub" : 1, 
-         "Tableau" : 0.6,
+         "Streamlit" : 2,
+         "GitHub" : 3, 
+         "Tableau" : 1,
         }
         tools_data = list(tools.items())
         dg = pd.DataFrame(tools_data, columns=["Tools", "Competency"])
